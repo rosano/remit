@@ -22,3 +22,7 @@ To make this work with Remit, set the environment variable `REMIT_DOMAIN_MAP` to
 ```bash
 REMIT_DOMAIN_MAP='{"alfa.example.com": "https://raw.githubusercontent.com/bravo/charlie/main/index.html","delta.example.com": "https://gitea.example.com/bravo/charlie/raw/branch/main/index.html","echo.example.com": "https://static.example/charlie/index.html"}'
 ```
+
+---
+
+Note: Remit will [copy most headers](https://github.com/rosano/remit/commit/c5a6a187507326d984a96d13de02130912944787) to the response.
