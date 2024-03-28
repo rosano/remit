@@ -9,9 +9,31 @@ const mod = {
 				throw new Error('domain not in REMIT_DOMAIN_MAP');
 			}
 
+			const extension = req.path.match(/\.(\w+)$/);
+
+			const fetchPath = (function(url) {
+				if (extension) {
+					return url;
+				}
+
+				if (!url.endsWith('/')) {
+					url += '/';
+				}
+
+				if (!url.endsWith('index.html')) {
+					url += 'index.html';
+				}
+
+				return url;
+			})(req.url);
+
+			const fetchURL = base.split('/index.html').shift() + fetchPath;
+
 			return res.send({
 				base,
 				path: req.url,
+				fetchPath,
+				fetchURL,
 			});
 		} catch (error) {
 			res.statusCode = res.statusCode === 200 ? 500 : res.statusCode;
