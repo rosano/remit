@@ -2,7 +2,17 @@ const mod = {
 
 	async HandleRequest (req, res) {
 		try {
-			const domainMap = mod.DataDomainMap();
+			const base = mod.DataDomainMap()[req.headers.host];
+
+			if (!base) {
+				res.statusCode = 404;
+				throw new Error('domain not in REMIT_DOMAIN_MAP');
+			}
+
+			return res.send({
+				base,
+				path: req.url,
+			});
 		} catch (error) {
 			res.statusCode = res.statusCode === 200 ? 500 : res.statusCode;
 
