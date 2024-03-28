@@ -6,14 +6,14 @@ For example, here are three ways to turn a folder named `charlie` into a static 
 
 ```javascript
 {
-	// GitHub repository
-	"alfa.example.com": "https://raw.githubusercontent.com/bravo/charlie/main/index.html",
+  // GitHub repository
+  "alfa.example.com": "https://raw.githubusercontent.com/bravo/charlie/main/index.html",
 
-	// self-hosted Gitea repository
-	"delta.example.com": "https://gitea.example.com/bravo/charlie/raw/branch/main/index.html",
+  // self-hosted Gitea repository
+  "delta.example.com": "https://gitea.example.com/bravo/charlie/raw/branch/main/index.html",
 
-	// FTP server
-	"echo.example.com": "https://static.example/charlie/index.html",
+  // FTP server
+  "echo.example.com": "https://static.example/charlie/index.html",
 }
 ```
 
