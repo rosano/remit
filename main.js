@@ -56,7 +56,7 @@ const mod = {
 
 	// COMMAND
 
-	GoDownloadAndRespondWithFile(fetchURL, extension, res) {
+	async GoDownloadAndRespondWithFile (fetchURL, extension, res) {
 		const destination = require('path').join(__dirname, '__download', require('crypto').createHash('md5').update(fetchURL).digest('hex') + '.' + extension);
 
 		if (!require('fs').existsSync(require('path').dirname(destination))){
