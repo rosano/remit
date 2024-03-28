@@ -53,6 +53,8 @@ const mod = {
 		}
 	},
 
+	// DATA
+
 	DataDomainMap() {
 		if (!process.env.REMIT_DOMAIN_MAP) {
 			throw new Error('REMIT_DOMAIN_MAP not defined');
