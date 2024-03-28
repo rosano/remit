@@ -1,0 +1,10 @@
+{
+  "name": "remit",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "node-fetch": "2.x"
+  }
+}
