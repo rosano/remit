@@ -29,6 +29,10 @@ const mod = {
 
 			const fetchURL = base.split('/index.html').shift() + fetchPath;
 
+			if (extension && (extension[1] !== 'html')) {
+				return GoDownloadAndRespondWithFile(fetchURL, extension[1], res);
+			}
+
 			return res.send({
 				base,
 				path: req.url,
@@ -48,6 +52,20 @@ const mod = {
 		}
 
 		return JSON.parse(process.env.REMIT_DOMAIN_MAP);
+	},
+
+	// COMMAND
+
+	GoDownloadAndRespondWithFile(fetchURL, extension, res) {
+		const destination = require('path').join(__dirname, '__download', require('crypto').createHash('md5').update(fetchURL).digest('hex') + '.' + extension);
+
+		if (!require('fs').existsSync(require('path').dirname(destination))){
+			require('fs').mkdirSync(require('path').dirname(destination));
+		}
+
+		await require('util').promisify(require('stream').pipeline)((await require('node-fetch')(fetchURL)).body, require('fs').createWriteStream(destination));
+
+		return res.sendFile(destination);
 	},
 
 	// LIFECYCLE
