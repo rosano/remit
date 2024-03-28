@@ -33,12 +33,19 @@ const mod = {
 				return GoDownloadAndRespondWithFile(fetchURL, extension[1], res);
 			}
 
-			return res.send({
-				base,
-				path: req.url,
-				fetchPath,
-				fetchURL,
+			const fetchResponse = await require('node-fetch')(fetchURL);
+
+			Object.entries(fetchResponse.headers.raw()).map(function ([key, value]) {
+				value.map(function (e) {
+					if (!['content-encoding', 'content-disposition'].includes(key)) {
+						res.set(key, e);
+					}
+				});
 			});
+
+			res.set('content-type', 'text/html; charset=utf-8');
+
+			return res.send(await fetchResponse.text());
 		} catch (error) {
 			res.statusCode = res.statusCode === 200 ? 500 : res.statusCode;
 
