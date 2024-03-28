@@ -30,7 +30,7 @@ const mod = {
 			const fetchURL = base.split('/index.html').shift() + fetchPath;
 
 			if (extension && (extension[1] !== 'html')) {
-				return GoDownloadAndRespondWithFile(fetchURL, extension[1], res);
+				return mod.GoDownloadAndRespondWithFile(fetchURL, extension[1], res);
 			}
 
 			const fetchResponse = await require('node-fetch')(fetchURL);
