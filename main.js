@@ -37,7 +37,7 @@ const mod = {
 
 			Object.entries(fetchResponse.headers.raw()).map(function ([key, value]) {
 				value.map(function (e) {
-					if (!['content-encoding', 'content-disposition'].includes(key)) {
+					if (!['content-encoding', 'content-disposition', 'content-security-policy'].includes(key)) {
 						res.set(key, e);
 					}
 				});
