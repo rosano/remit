@@ -10,6 +10,8 @@ REMIT_BASE="https://example.com/folder_with_websites/"
 
 Then Remit will map `alfa.com/bravo` to `https://example.com/folder_with_websites/alfa.com/bravo`.
 
+---
+
 Dockerfiles are for [easy](https://easyindie.app) deployment to [Cloudron](cloudron.io) and [Caprover](https://caprover.com).
 
 ---
