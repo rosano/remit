@@ -1,6 +1,6 @@
 {
 	"title": "remit on Cloudron",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"healthCheckPath": "/",
 	"httpPort": 3000,
 	"addons": {
