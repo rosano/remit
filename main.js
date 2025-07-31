@@ -15,7 +15,7 @@ app.use(async (req, res) => {
 	const extension = source.match(/\.(\w+)$/);
 
 	if (extension && (extension[1] !== 'html')) {
-		const destination = require('path').join(__dirname, '__download', require('crypto').createHash('md5').update(source).digest('hex') + '.' + extension[1]);
+		const destination = require('path').join(process.env.DATA_DIRECTORY || __dirname, '__download', require('crypto').createHash('md5').update(source).digest('hex') + '.' + extension[1]);
 
 		if (!require('fs').existsSync(require('path').dirname(destination))){
 			require('fs').mkdirSync(require('path').dirname(destination));

@@ -10,4 +10,7 @@ set -o allexport
 source /app/data/.env
 set +o allexport
 
+mkdir -p /app/data/__download
+chown -R cloudron:cloudron /app/data/__download/
+
 exec /usr/local/bin/gosu cloudron:cloudron npm start

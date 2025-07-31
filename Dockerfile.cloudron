@@ -12,6 +12,8 @@ ADD . /app/code
 ENV PORT 3000
 EXPOSE 3000
 
+ENV DATA_DIRECTORY /app/data/
+
 RUN sed -i 's/in \.env/in \/app\/data\/\.env/g' main.js
 
 CMD [ "/app/code/cloudron-start.sh" ]
