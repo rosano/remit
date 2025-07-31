@@ -2,7 +2,7 @@
 
 Single-file Node.js app that receives requests for multiple domains and maps them to folders under any public URL.
 
-First, set `REMIT_BASE` to a URL in `.env`, maybe something like:
+First, set `REMIT_BASE` in `.env` to a URL, maybe something like:
 
 ```bash
 REMIT_BASE="https://example.com/folder_with_websites/"
